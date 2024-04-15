@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портал «Нарушениям.Нет»</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    {% include '/components/header.html' %}
+
+    <main>
+        <section>
+            <h2>Описание проекта</h2>
+            <p>Портал сознательных граждан «Нарушениям.Нет» представляет собой информационную систему для помощи полиции по своевременной фиксации нарушений правил дорожного движения.</p>
+        </section>
+
+        <section>
+            <h2>Подать жалобу</h2>
+            <p>Вы можете помочь нам в борьбе с нарушителями, подав жалобу на нарушение правил дорожного движения.</p>
+            <a href="/createticket">Подать жалобу</a>
+        </section>
+    </main>
+
+    {% include '/components/footer.html' %}
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакты</title>
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+{% include '/components/header.html' %}
+
+<main>
+<section>
+<h2>Контакты</h2>
+
+<h3>Разработчик портала:</h3>
+<p>Админ Алексеевич</p>
+
+<h3>Связаться с нами:</h3>
+<p>Если у вас есть вопросы или предложения, связанные с использованием портала «Нарушениям.Нет», пожалуйста, свяжитесь с нами:</p>
+<ul>
+  <li>Электронная почта: admin@narusheniyam.net</li>
+  <li>Телефон: +7 (XXX) XXX-XX-XX</li>
+  <li>Адрес: [ваш адрес]</li>
+</ul>
+
+<p>Будем рады услышать ваше мнение и помочь в решении любых вопросов!</p>
+</section>
+</main>
+
+{% include '/components/footer.html' %}
+</body>
+</html>

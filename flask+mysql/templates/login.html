@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портал «Нарушениям.Нет»</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    {% include '/components/header.html' %}
+
+    <main>
+        <section>
+            {% if result is defined%}
+                <h2>{{result}}</h2>
+            {%endif%}
+            <form action="/login" method="POST">
+                <div class="input-group">
+                    <label for="username">Имя пользователя:</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="input-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit">Войти</button>
+            </form>
+            <p>Нет аккаунта? <a href="/reg">Зарегистрироваться</a></p>
+        </section>
+
+    </main>
+
+    {% include '/components/footer.html' %}
+</body>
+</html>

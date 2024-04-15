@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портал «Нарушениям.Нет»</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    {% include '/components/header.html' %}
+
+    <main>
+        <section>
+            {% if result is defined %}
+
+            {{result}}
+
+          
+
+        {% endif %}
+        
+
+        
+        <form action="/reg" method="post" id="registrationForm" class="input-group">
+            <h2>создать аккаунт</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="\+7\d{10}">
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            
+            <div class="checkbox">
+                <input type="checkbox" id="agreeRules" name="agreeRules" required>
+                <label for="agreeRules"  class="agree-label">Я согласен с <a href="/rules">правилами и условиями</a></label>
+            </div>
+            
+            <button type="submit" id="registerButton" disabled>Register</button>
+            <p>Уже есть аккаунт? <a href="/login">Войти</a></p>
+        </form>
+        
+    </div>
+        </section>
+
+    </main>
+
+    {% include '/components/footer.html' %}
+
+    <script>
+        // Получаем ссылки на элементы формы
+        const agreeCheckbox = document.getElementById('agreeRules');
+        const registerButton = document.getElementById('registerButton');
+
+        // Слушаем изменения в чекбоксе
+        agreeCheckbox.addEventListener('change', function() {
+            // Если чекбокс отмечен, активируем кнопку, иначе деактивируем
+            registerButton.disabled = !this.checked;
+        });
+    </script>
+</body>
+</html>

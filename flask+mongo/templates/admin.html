@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портал «Нарушениям.Нет»</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    {% include '/components/header.html' %}
+
+    <main>
+        {% for i in tickets%}
+                    <br>
+                    Госномер:{{i["number"]}}
+                    <br>
+                    Текст:{{i["text"]}}
+                    <br>
+                    Статус:{{i["status"]}}
+                    <br>
+                    Пользователь:{{i["username"]}}
+
+                    <form action="/admin" method="POST">
+        
+                        <select name="select" id="pet-select">
+                            <option value="done">Готово</option>
+                            <option value="reject">Отклонить</option>
+                            <option value="delete">Удалить</option>
+                            
+
+                          </select>
+                            <input id="id", name="_id", value="{{i['_id']}}" type="hidden">
+                        
+                        <button type="submit">Изменить</button>
+                    </form>
+                    -------------------------------------
+                {% endfor %}
+    </main>
+
+    {% include '/components/footer.html' %}
+</body>
+</html>
+

@@ -1,0 +1,16 @@
+<header>
+    <h1>Портал «Нарушениям.Нет»</h1>
+    <nav>
+        <ul>
+           
+            <li><a href="/">Главная</a></li>
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/contacts">Контакты</a></li>
+            {% if username != None %}
+                <li><a href="/account">{{ username }}</a></li>
+            {% else %}
+                <li><a href="/login">Войти</a></li>
+            {%endif%}
+        </ul>
+    </nav>
+</header>
